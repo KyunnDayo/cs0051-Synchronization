@@ -1,0 +1,13 @@
+key points
+-Summative
+	-module 1
+		-parallel computing 
+		-sequential and parallel
+		-shared and distributed memory
+	-Threads
+	-Process
+	-Mutual Exclusion
+	-Locks
+	-Liveness
+
+	

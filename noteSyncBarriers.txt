@@ -1,0 +1,60 @@
+Synchronization
+	-refers to the coordinaton oactivities between multiple processes, threads, nodes to ensure correct and orderly execution.
+		-it invlvoles managing access to shared resources, coordinating communication and enforcing consistency in a concurrent or distributed system
+
+	Key aspects
+		- Mutual Exclusion
+			- ensures that only one process or thread can access a shared resource at a time
+				- it prevents a concurrent access that could lead to datae corruption or inconsistencies 
+					-techniques such as locks, semaphores and monitors (commonly used to enforce mutual exclusion)
+		- Data Synchronization
+			-involces coordinating access and upadtes o shared data structues across multiple processes or threads
+				- it ensures that all participants see a consistent and cohererent view of data 
+					- tehcniques like read-write locks, atomic operatiosn and transactional memory
+		- Barrier Synchronization
+			- involves coordinating a group of processes/threads to reach a synchronization point
+		- Message Passing
+			- Incolves communication between different nodes or processes 
+				- allows processes to exchange information and coordinate activities
+					- message queues, remote procedure calls (RPC) and message-oriented mddleware facilitate communcication and synchronization in distributed system
+  		- Consistency and Coherence
+  			- Assurance of data consistency between different computers and systems
+
+		TheBeatles
+			- john - vocal/composer string
+			- paul - vocal/lead
+			- richard - bass guitar
+			- gringo --> concert
+
+	-Condition variable
+		- is a synchronization primitive that allows threads to wait until a certain condition is met
+			- it is used in scenarios where one or more threads need to wait for a specific condition to be true before proceeding 
+	-Three operation 
+		- wait 
+			- is used when a thread wnat to wait untila  certain condition becomes true
+				- before callin 'wait', the threads needs to acquire the associated mutex lock. If the lock condition is note met the wait operation releases the lock on the mutex and puts the threads to sleep or in paused state. The thread is then placed into a queue of waiting threads, awaiting a signal or broadcast to other hand.
+		-signal
+			- is used to notify one waiting htead that the condition it was waiting for has occured.
+				-when a thread calls signal, it typically releases the mutex lock and wake up one of the threads waiting on the condition
+		-broadcaster
+			- similar signal operation, but it wakes up all the threads waiting on the condition variable instead of just one. it releases the mutex lock and allows all waiting threads to proceed
+
+				- Pattern
+					- acquiring the mutex lock
+					- checking the condition
+						- if the condition is not met 
+						- calling the wait operation on the condition variable
+					- waitn operation releases the lock and puts the thead to sleep until another thread signal or broadcast that condition 
+						- once the thread is awakened, it reacquires the lock and rechecks the condition before proceeding
+
+	-Producer-consumer
+		-Producer-Consumer problem is a classic synchronization problem in computer science.
+		-The goal is to ensure that producers and consumers can work 
+			-It has two processes:
+				-Producers
+				-Consumers
+
+	MINI ACTIVITY:
+		Create a program that simulates a food order processing system using the producer-consumer pattern. The system will consiste of a restaurant(producer) that receives food orders from the customer and a delivery team(consumer) responsible for delivering orders.
+	
+	-Semaphore
